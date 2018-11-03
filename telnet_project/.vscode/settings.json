@@ -1,0 +1,52 @@
+{
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    
+    // vs 코드 트리 화면에서 제외할 파일/폴더
+    "files.exclude": {
+        ".mypy_cache": true,
+        ".venv": true,
+        ".vscode": true,
+        ".env": true,
+        "**/env": true,
+        "**/__pycache__/**": true,
+    },   
+
+    // 파이썬 버전 선택
+    "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+    "python.envFile": "${workspaceFolder}/.env",
+    
+    // python linter 설정
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 4}"],
+
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pep8Enabled": true,
+    "python.linting.flake8Enabled": true,
+
+    // python 처음 사용한다면 false을 권함
+    // python naming 등 자세하게 체크해줌 - 경고메세지가 더 많음???
+    // "python.linting.pylintUseMinimalCheckers": false,
+    // 제외할 경고 
+    "python.linting.pylintArgs": [
+        "--disable=C0111"
+    ],
+
+    // 파이선 체크에서 제외할 파일/폴더
+    "python.linting.ignorePatterns": [
+        ".venv/**/*.py"
+    ],
+
+    // unit test
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "test_*.py"
+    ],
+    "python.unitTest.pyTestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.unittestEnabled": true,
+}
